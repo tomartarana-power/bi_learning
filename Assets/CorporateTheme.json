@@ -1,0 +1,22 @@
+{
+    "name": "Enterprise Dark Theme",
+    "dataColors": ["#1F77B4", "#FF7F0E", "#2CA02C", "#D62728", "#9467BD"],
+    "background": "#2D2D2D",
+    "foreground": "#000111",
+    "tableStyles": [
+        {
+            "styleName": "Default Style",
+            "fontColor": "#FFFFFF",
+            "background": "#2D2D2D",
+            "outline": "#4D4D4D"
+        }
+    ],
+    "visualStyles": {
+        "*": {
+            "*": {
+                "title": [{"fontColor": "#FFFFFF", "fontSize": 14}],
+                "visualHeader": [{"background": "#1E1E1E"}]
+            }
+        }
+    }
+}
