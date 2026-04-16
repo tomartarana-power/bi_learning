@@ -1,0 +1,38 @@
+table people
+	lineageTag: a2f82746-ff75-4c5f-8743-38ec7e8d05cf
+
+	column 'Sales person'
+		dataType: string
+		lineageTag: d17d222a-306c-4e38-9a04-79da9dc071a0
+		summarizeBy: none
+		sourceColumn: Sales person
+
+		annotation SummarizationSetBy = Automatic
+
+	column Team
+		dataType: string
+		lineageTag: bf86cc39-3eb3-4d04-8b31-7fe72ac56ae2
+		summarizeBy: none
+		sourceColumn: Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column Picture
+		dataType: string
+		lineageTag: e6ccfae2-b656-4ce1-9e8f-576e24c34755
+		summarizeBy: none
+		sourceColumn: Picture
+
+		annotation SummarizationSetBy = Automatic
+
+	partition people = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\amanp\Downloads\pb-sales-data-blank.xlsx"), null, true),
+				    people_Table = Source{[Item="people",Kind="Table"]}[Data]
+				in
+				    people_Table
+
+	annotation PBI_ResultType = Exception
+

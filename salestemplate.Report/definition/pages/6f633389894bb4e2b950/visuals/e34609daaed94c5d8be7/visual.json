@@ -1,0 +1,154 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.7.0/schema.json",
+  "name": "e34609daaed94c5d8be7",
+  "position": {
+    "x": 9.6055210305030236,
+    "y": 295.02671736545005,
+    "z": 1000,
+    "height": 425.3873599222768,
+    "width": 767.06946515017012,
+    "tabOrder": 1000
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "products"
+                    }
+                  },
+                  "Property": "Size"
+                }
+              },
+              "queryRef": "products.Size",
+              "nativeQueryRef": "Size",
+              "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "people"
+                    }
+                  },
+                  "Property": "Team"
+                }
+              },
+              "queryRef": "people.Team",
+              "nativeQueryRef": "Team"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "people"
+                        }
+                      },
+                      "Property": "Sales person"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(people.Sales person)",
+              "nativeQueryRef": "Sales person"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "people"
+                      }
+                    },
+                    "Property": "Sales person"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e4380105bb679ac628d1",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "products"
+              }
+            },
+            "Property": "Size"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "c85a9038c0de7b025409",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "people"
+              }
+            },
+            "Property": "Team"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "169197ebe15eda727b73",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "people"
+                  }
+                },
+                "Property": "Sales person"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

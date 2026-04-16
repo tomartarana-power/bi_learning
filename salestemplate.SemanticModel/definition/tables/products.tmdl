@@ -1,0 +1,39 @@
+table products
+	lineageTag: e8ed47ac-f91f-4dee-8777-12688b0f8ae4
+
+	column Product
+		dataType: string
+		lineageTag: a7e6e3e4-9f64-4d8a-a24f-f89587340d0e
+		summarizeBy: none
+		sourceColumn: Product
+
+		annotation SummarizationSetBy = Automatic
+
+	column Category
+		dataType: string
+		lineageTag: 86ab9b77-559f-478d-b693-d285e6df4dfb
+		summarizeBy: none
+		sourceColumn: Category
+
+		annotation SummarizationSetBy = Automatic
+
+	column Size
+		dataType: string
+		lineageTag: e1b15d66-0125-4cc0-9320-cb2737a81fb4
+		summarizeBy: none
+		sourceColumn: Size
+
+		annotation SummarizationSetBy = Automatic
+
+	partition products = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\amanp\Downloads\pb-sales-data-blank.xlsx"), null, true),
+				    products_Table = Source{[Item="products",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(products_Table,{{"Product", type text}, {"Category", type text}, {"Size", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Exception
+
