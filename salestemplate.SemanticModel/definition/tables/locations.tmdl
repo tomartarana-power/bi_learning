@@ -1,0 +1,31 @@
+table locations
+	lineageTag: 0d815694-06af-4bd1-9207-06986d19ab0b
+
+	column Geo
+		dataType: string
+		lineageTag: 298634df-eab1-4117-9eee-fbb60fabaa95
+		summarizeBy: none
+		sourceColumn: Geo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Region
+		dataType: string
+		lineageTag: 104c7c50-21e7-438c-9738-e9382a4a5077
+		summarizeBy: none
+		sourceColumn: Region
+
+		annotation SummarizationSetBy = Automatic
+
+	partition locations = m
+		mode: import
+		source =
+				let
+				    Source = Excel.Workbook(File.Contents("C:\Users\amanp\Downloads\pb-sales-data-blank.xlsx"), null, true),
+				    locations_Table = Source{[Item="locations",Kind="Table"]}[Data],
+				    #"Changed Type" = Table.TransformColumnTypes(locations_Table,{{"Geo", type text}, {"Region", type text}})
+				in
+				    #"Changed Type"
+
+	annotation PBI_ResultType = Exception
+

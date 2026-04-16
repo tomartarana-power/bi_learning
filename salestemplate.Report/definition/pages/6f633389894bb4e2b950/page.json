@@ -4,5 +4,75 @@
   "displayName": "Page 1",
   "displayOption": "FitToPage",
   "height": 720,
-  "width": 1280
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "4a32d65a1600877b3b70",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "sales"
+              }
+            },
+            "Property": "Customers"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      },
+      {
+        "name": "dcc660fbae0542bec7e4",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "sales"
+              }
+            },
+            "Property": "Customers"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "Drillthrough"
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "1d708ca3915445014540",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "38747c3600c950d5866c",
+        "boundFilter": "4a32d65a1600877b3b70",
+        "asAggregation": true,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "sales"
+              }
+            },
+            "Property": "Customers"
+          }
+        }
+      },
+      {
+        "name": "07a03080437ae4aec83a",
+        "boundFilter": "dcc660fbae0542bec7e4",
+        "asAggregation": true,
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "sales"
+              }
+            },
+            "Property": "Customers"
+          }
+        }
+      }
+    ]
+  }
 }

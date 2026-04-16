@@ -1,0 +1,13 @@
+relationship 547145e7-67c4-4239-be73-62f09cf2c467
+	joinOnDateBehavior: datePartOnly
+	fromColumn: sales.Date
+	toColumn: LocalDateTable_33414e71-cf1e-4f2c-939a-f61eb167c900.Date
+
+relationship AutoDetected_a213f4f2-8f77-45b3-bdcc-0fb574f2d537
+	fromColumn: sales.'Sales Person'
+	toColumn: people.'Sales person'
+
+relationship AutoDetected_5f25f1aa-1bd0-4402-a250-94d4c4cf7a6a
+	fromColumn: sales.Product
+	toColumn: products.Product
+

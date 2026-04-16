@@ -8,7 +8,17 @@ model Model
 
 annotation __PBI_TimeIntelligenceEnabled = 1
 
+annotation PBI_QueryOrder = ["locations","people","Data","products","sales"]
+
 annotation PBI_ProTooling = ["DevMode"]
+
+ref table locations
+ref table people
+ref table Data
+ref table products
+ref table sales
+ref table DateTableTemplate_96110411-d926-44ef-9a3f-030709bbe970
+ref table LocalDateTable_33414e71-cf1e-4f2c-939a-f61eb167c900
 
 ref cultureInfo en-IN
 
